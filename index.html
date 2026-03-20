@@ -139,7 +139,7 @@
     <div class='hero-inner'>
       <img class='hero-art' src='Croc.jpg' alt='Croc footy art'/>
       <div class='hero-copy'>
-        <h1 id='sheetTitle'>AFL Game Week: Round</h1>
+        <h1 id='sheetTitle'>Fridge Footy: Round</h1>
         <div id='roundLabel' class='sub' style='display:none;'></div>
         <div class='mini'>Pick your winners, then find the games on the map.</div>
       </div>
@@ -254,16 +254,16 @@ function saveOwner(owner) {
   } catch (e) {}
 }
 
-function getOwner() {
-  return loadOwner();
-}
+  function getOwner() {
+    return loadOwner();
+  }
 
 function updateHeader(players, selectedRound) {
   const titleEl = document.getElementById('sheetTitle');
   const owner = getOwner();
   const roundSuffix = selectedRound ? ` Round ${selectedRound}` : '';
-  let titleText = `AFL Game Week:${roundSuffix}`;
-  if (owner) titleText = `${owner}'s AFL Game Week:${roundSuffix}`;
+  let titleText = `Fridge Footy:${roundSuffix}`;
+  if (owner) titleText = `${owner}'s Fridge Footy:${roundSuffix}`;
   if (titleEl) titleEl.textContent = titleText;
   document.title = titleText;
 }
