@@ -1,6 +1,6 @@
 # FridgeFooty
 
-A simple printable AFL game week sheet for kids and families.
+A simple printable Fridge Footy sheet for kids and families.
 
 This page shows the upcoming AFL round, lets you add player names, choose the sheet owner, and print a one-page tipping sheet for the fridge.
 
