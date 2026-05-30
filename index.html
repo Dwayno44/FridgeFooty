@@ -96,6 +96,16 @@
     .layout { grid-template-columns:1fr; }
     .left-col { order:2; }
     #cards { order:1; }
+    /* stack each card: matchup on top, tips full-width below */
+    .card { padding:10px; }
+    .card-grid { grid-template-columns:1fr; gap:8px; }
+    .card-main { padding:0; }
+    .card-tips { border-left:0; border-top:var(--border-mid); padding:9px 0 0; }
+    .teams { gap:6px; }
+    .logo { width:30px; height:30px; }
+    .name { font-size:12px; white-space:normal; line-height:1.1; }
+    .meta { white-space:normal; flex-wrap:wrap; font-size:12px; gap:4px 6px; }
+    .pick-stack { gap:8px; }
   }
 
   @media print {
