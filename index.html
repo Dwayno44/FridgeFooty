@@ -96,6 +96,12 @@
     .layout { grid-template-columns:1fr; }
     .left-col { order:2; }
     #cards { order:1; }
+    /* hero: give the title room so it stops wrapping into the art */
+    .hero { padding:10px; }
+    .hero-inner { grid-template-columns:64px minmax(0,1fr) 64px; gap:8px; }
+    .hero-art { max-width:64px; }
+    .hero h1 { font-size:26px; letter-spacing:0.5px; line-height:1.05; }
+    .hero .mini { font-size:12px; }
     /* stack each card: matchup on top, tips full-width below */
     .card { padding:10px; }
     .card-grid { grid-template-columns:1fr; gap:8px; }
