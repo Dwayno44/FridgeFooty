@@ -124,6 +124,8 @@
   .bracket-col.gf .matchup { border-color:#000; align-items:center; }
   .gf-trophy { font-size:22px; text-align:center; line-height:1; }
   .layout.finals-mode { grid-template-columns:1fr; }
+  /* left-col is a grid; its implicit auto track won't fill the row, so make the track 1fr */
+  .layout.finals-mode .left-col { grid-template-columns:minmax(0,1fr); }
   .layout.finals-mode #cards { grid-template-columns:1fr 1fr; gap:8px; }
   .finals-mode #cards .card { padding:14px 16px; }
   .finals-mode #cards .logo { width:46px; height:46px; }
