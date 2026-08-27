@@ -100,37 +100,34 @@
   .print-btn { display:inline-flex; align-items:center; gap:6px; padding:12px 28px; border:var(--border-strong); border-radius:var(--radius-pill); background:#000; color:#fff; font:inherit; font-size:15px; font-weight:800; cursor:pointer; -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
   /* Placeholder crest for a team that isn't decided yet (finals TBC) */
   .logo-tbc { display:inline-flex; align-items:center; justify-content:center; font-weight:900; font-size:18px; color:#aaa; border:2px dashed #bbb; border-radius:50%; background:#fafafa; box-sizing:border-box; }
-  /* Finals bracket */
+  /* Finals bracket: current week = the tipping column, other stages = the path */
   .bracket-wrap { width:100%; }
   .bracket-cap { text-align:center; font-size:12px; font-weight:800; color:#4d4d4d; margin-bottom:8px; }
   .bracket { display:flex; gap:8px; align-items:stretch; overflow-x:auto; padding-bottom:4px; }
-  .bracket-col { flex:1 1 0; min-width:118px; display:flex; flex-direction:column; gap:6px; }
-  .stage-head { text-align:center; font-family:'Fredoka','Arial Rounded MT Bold','Trebuchet MS',sans-serif; font-weight:900; font-size:13px; border:2px solid #000; border-radius:12px; padding:4px; background:#fff; line-height:1.05; }
+  .bracket-col { flex:1 1 0; min-width:110px; display:flex; flex-direction:column; gap:6px; }
+  .stage-head { text-align:center; font-family:'Fredoka','Arial Rounded MT Bold','Trebuchet MS',sans-serif; font-weight:900; font-size:12px; border:2px solid #000; border-radius:12px; padding:4px; background:#fff; line-height:1.05; }
   .stage-head .stage-dates { display:block; font-size:9px; font-weight:700; color:#666; letter-spacing:0.2px; }
-  .bracket-col.current { flex-grow:1.55; background:#ededed; border:3px solid #000; border-radius:16px; padding:6px 6px 8px; }
-  .bracket-col.current .stage-head { background:#000; color:#fff; border-color:#000; font-size:15px; border-width:2.5px; }
-  .bracket-col:not(.current) { opacity:0.85; }
+  .bracket-col:not(.current) { opacity:0.9; }
   .bracket-col:not(.current) .stage-head { color:#555; border-color:#777; }
+  /* the current-week tipping column */
+  .bracket-col.tip-col { flex:3.3 1 0; background:#ededed; border:3px solid #000; border-radius:16px; padding:7px; gap:7px; }
+  .bracket-col.tip-col .stage-head { background:#000; color:#fff; border-color:#000; font-size:15px; border-width:2.5px; }
+  .bracket-col.tip-col .card { flex:1 1 0; }
   .stage-flag { width:fit-content; margin:0 auto 5px; background:#000; color:#fff; font-family:'Fredoka','Arial Rounded MT Bold','Trebuchet MS',sans-serif; font-weight:900; font-size:9px; letter-spacing:1px; padding:2px 10px; border-radius:999px; text-align:center; }
-  .matchup { border:1.5px solid #7a7a7a; border-radius:12px; padding:5px 6px; display:flex; flex-direction:column; gap:3px; background:#fff; flex:1 1 0; justify-content:center; }
-  .bracket-col.current .matchup { border-color:#000; border-width:2px; }
-  .bracket-col.current .mteam { font-size:12.5px; }
-  .mteam { display:flex; align-items:center; gap:5px; font-size:11px; font-weight:800; color:#1a1a1a; min-width:0; }
-  .mteam .mname { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  /* overview nodes: two teams side-by-side (logo over short name) */
+  .matchup { border:1.5px solid #7a7a7a; border-radius:12px; padding:6px 5px; display:flex; flex-direction:column; align-items:center; gap:4px; background:#fff; flex:1 1 0; justify-content:center; }
+  .mrow { display:flex; flex-direction:row; align-items:center; justify-content:center; gap:5px; width:100%; }
+  .mteam { display:flex; flex-direction:column; align-items:center; text-align:center; gap:3px; font-size:11px; font-weight:800; color:#1a1a1a; flex:1 1 0; min-width:0; }
+  .mteam .mname { white-space:normal; line-height:1.03; overflow-wrap:anywhere; }
   .mteam.tbc { color:#999; font-weight:700; }
-  .mlogo { width:20px; height:20px; object-fit:contain; flex:0 0 auto; }
-  .mlogo-tbc { width:20px; height:20px; border-radius:50%; border:1.5px dashed #bbb; display:inline-flex; align-items:center; justify-content:center; font-size:12px; color:#aaa; flex:0 0 auto; box-sizing:border-box; }
-  .mvs { text-align:center; font-size:9px; font-weight:900; color:#999; }
-  .bracket-col.gf .matchup { border-color:#000; align-items:center; }
-  .gf-trophy { font-size:22px; text-align:center; line-height:1; }
+  .mlogo { width:26px; height:26px; object-fit:contain; flex:0 0 auto; }
+  .mlogo-tbc { width:26px; height:26px; border-radius:50%; border:1.5px dashed #bbb; display:inline-flex; align-items:center; justify-content:center; font-size:13px; color:#aaa; flex:0 0 auto; box-sizing:border-box; }
+  .mvs { text-align:center; font-size:10px; font-weight:900; color:#999; flex:0 0 auto; }
+  .bracket-col.gf .matchup { border-color:#000; }
+  .gf-trophy { font-size:26px; text-align:center; line-height:1; margin-top:2px; }
   .layout.finals-mode { grid-template-columns:1fr; }
   /* left-col is a grid; its implicit auto track won't fill the row, so make the track 1fr */
   .layout.finals-mode .left-col { grid-template-columns:minmax(0,1fr); }
-  .layout.finals-mode #cards { grid-template-columns:1fr 1fr; gap:8px; }
-  .finals-mode #cards .card { padding:14px 16px; }
-  .finals-mode #cards .logo { width:46px; height:46px; }
-  .finals-mode #cards .name { font-size:15px; }
-  .finals-mode #cards .meta { font-size:13px; }
   @media (max-width:680px) {
     .layout.finals-mode #cards { grid-template-columns:1fr; }
     .layout { grid-template-columns:1fr; }
@@ -202,49 +199,43 @@
     .tip-blank[data-filled='1'] { border-bottom:none; height:auto; }
     .source { margin-top:3px; font-size:8px; padding-top:2px; border-top-width:1px; }
     .print-btn-wrap { display:none; }
-    /* Finals bracket: single full-width column, shrink so 5 stages fit landscape */
-    .layout.finals-mode { grid-template-columns:1fr; gap:4px; }
-    .layout.finals-mode #cards { grid-template-columns:1fr 1fr; gap:2px; }
-    #finalsBox { padding:5px; border-width:2px; border-radius:10px; }
-    .bracket-cap { font-size:9px; margin-bottom:4px; }
-    .bracket { gap:4px; padding-bottom:0; }
-    .bracket-col { min-width:0; gap:3px; }
-    .stage-head { font-size:10px; border-width:1.5px; border-radius:8px; padding:2px; }
-    .stage-head .stage-dates { font-size:7px; }
-    .matchup { padding:3px; border-radius:8px; gap:2px; }
-    .mteam { font-size:8.5px; gap:3px; }
-    .mlogo, .mlogo-tbc { width:14px; height:14px; }
-    .mvs { font-size:7px; }
-    .gf-trophy { font-size:15px; }
-    .stage-flag { font-size:7px; padding:1px 7px; margin-bottom:3px; }
-    .bracket-col.current { border-width:2.5px; padding:4px 4px 5px; }
-    .bracket-col.current .stage-head { font-size:11px; }
-    .bracket-col.current .mteam { font-size:9.5px; }
-    /* Fill one landscape page: the bracket grows to absorb any leftover height
-       so there is minimal empty space at the bottom, whatever the game count. */
+    /* Finals: one horizontal bracket. Current week = big tip cards, rest = the path. */
+    #finalsBox { padding:6px; border-width:2px; border-radius:10px; }
+    .bracket-cap { font-size:10px; margin-bottom:5px; }
+    .bracket { gap:5px; padding-bottom:0; }
+    .bracket-col { min-width:0; gap:4px; }
+    .stage-head { font-size:11px; border-width:1.5px; border-radius:8px; padding:3px; }
+    .stage-head .stage-dates { font-size:8px; }
+    .stage-flag { font-size:8px; padding:1px 8px; margin-bottom:3px; }
+    /* path (overview) nodes */
+    .matchup { padding:5px 4px; border-radius:8px; gap:4px; }
+    .mteam { font-size:11px; gap:3px; }
+    .mlogo, .mlogo-tbc { width:24px; height:24px; }
+    .mvs { font-size:9px; }
+    .gf-trophy { font-size:24px; }
+    /* tip column (current week) */
+    .bracket-col.tip-col { border-width:2.5px; padding:6px; }
+    .bracket-col.tip-col .stage-head { font-size:14px; }
+    .bracket-col.tip-col .card { padding:12px 16px; border-width:2px; display:flex; }
+    .bracket-col.tip-col .card-grid { flex:1; align-items:center; grid-template-columns:minmax(0,2fr) minmax(140px,1fr); gap:14px; }
+    .bracket-col.tip-col .teams { gap:8px; }
+    .bracket-col.tip-col .logo { width:44px; height:44px; }
+    .bracket-col.tip-col .logo-tbc { font-size:22px; }
+    .bracket-col.tip-col .name { font-size:17px; white-space:normal; line-height:1.05; }
+    .bracket-col.tip-col .vs { font-size:16px; min-width:14px; }
+    .bracket-col.tip-col .meta { font-size:12px; gap:6px; margin-top:8px; }
+    .bracket-col.tip-col .pick-stack { gap:10px; }
+    .bracket-col.tip-col .pick { font-size:14px; gap:8px; }
+    .bracket-col.tip-col .tip-label { font-size:14px; min-width:46px; }
+    .bracket-col.tip-col .tip-blank { height:18px; font-size:14px; }
+    /* Fill one landscape page: the bracket stretches to the full sheet height. */
     body.finals-print .sheet { display:flex; flex-direction:column; min-height:198mm; }
     body.finals-print .hero { flex:0 0 auto; }
     body.finals-print .layout.finals-mode { flex:1 1 auto; display:flex; flex-direction:column; align-items:stretch; min-height:0; }
     body.finals-print .left-col { flex:1 1 auto; display:flex; flex-direction:column; align-items:stretch; width:100%; min-height:0; }
-    body.finals-print #finalsBox { flex:1.1 1 auto; display:flex; flex-direction:column; min-height:0; }
+    body.finals-print #finalsBox { flex:1 1 auto; display:flex; flex-direction:column; min-height:0; }
     body.finals-print #finalsBox .bracket-wrap { flex:1 1 auto; display:flex; flex-direction:column; min-height:0; }
     body.finals-print #finalsBox .bracket { flex:1 1 auto; }
-    /* Only 2-4 finals games: cards fill the lower band AND their content scales up
-       (big logos, names, writing lines) so the space is used, not left blank. */
-    body.finals-print #cards { flex:1 1 auto; display:grid; grid-template-columns:1fr 1fr; grid-auto-rows:1fr; gap:8px; margin-top:8px; }
-    body.finals-print #cards .card { height:100%; padding:14px 20px; border-width:2px; display:flex; }
-    body.finals-print #cards .card-grid { flex:1; align-items:center; grid-template-columns:minmax(0,2.1fr) minmax(150px,1fr); gap:16px; }
-    body.finals-print #cards .logo { width:48px; height:48px; }
-    body.finals-print #cards .logo-tbc { font-size:24px; }
-    body.finals-print #cards .teams { gap:10px; }
-    body.finals-print #cards .name { font-size:18px; white-space:normal; line-height:1.05; }
-    body.finals-print #cards .vs { font-size:18px; min-width:16px; }
-    body.finals-print #cards .meta { font-size:14px; gap:8px; margin-top:12px; }
-    body.finals-print #cards .pin { width:25px; height:25px; font-size:14px; }
-    body.finals-print #cards .pick-stack { gap:14px; }
-    body.finals-print #cards .pick { font-size:16px; gap:10px; }
-    body.finals-print #cards .tip-label { font-size:16px; min-width:54px; }
-    body.finals-print #cards .tip-blank { height:22px; font-size:16px; }
   }
 </style>
 </head>
@@ -533,28 +524,46 @@ function bracketTeamRow(name){
   return `<div class='mteam'>${badge}<span class='mname'>${shortName(name)}</span></div>`;
 }
 function bracketMatchup(home, away, trophy){
-  return `<div class='matchup'>${bracketTeamRow(home)}<div class='mvs'>v</div>${bracketTeamRow(away)}${trophy ? "<div class='gf-trophy'>🏆</div>" : ''}</div>`;
+  // Compact overview node: the two teams sit side-by-side.
+  return `<div class='matchup'><div class='mrow'>${bracketTeamRow(home)}<div class='mvs'>v</div>${bracketTeamRow(away)}</div>${trophy ? "<div class='gf-trophy'>🏆</div>" : ''}</div>`;
 }
-function renderFinalsBracket(selectedRound){
+// Full tip card for the current finals week (teams side-by-side + player pick lines).
+function finalsTipCardHtml(m, players){
+  const meta = `<span>${fmtAwst(m.date_awst)}</span><span class='meta-sep'>|</span><span>${m.venue}</span>`;
+  const pickLines = players.length
+    ? players.map(function(player){
+        const t = getTip(m.match, player);
+        const tipText = t === 'home' ? m.home : t === 'away' ? m.away : '';
+        return `<div class='pick'><span class='tip-label'>${escapeHtml(player)}:</span><div class='tip-btns'><button class='tip-btn tip-h${t === 'home' ? ' selected' : ''}' data-match='${m.match}' data-player='${escapeHtml(player)}' data-choice='home'>${escapeHtml(m.home)}</button><button class='tip-btn tip-a${t === 'away' ? ' selected' : ''}' data-match='${m.match}' data-player='${escapeHtml(player)}' data-choice='away'>${escapeHtml(m.away)}</button></div><span class='tip-blank' data-filled='${tipText ? 1 : 0}'>${escapeHtml(tipText)}</span></div>`;
+      }).join('')
+    : "<div class='pick empty'><span class='tip-label'>Add players and start tipping!</span></div>";
+  return `<article class='card'><div class='card-grid'><div class='card-main'><div class='teams'>${cardSide(m.home)}<div class='vs'>v</div>${cardSide(m.away)}</div><div class='meta'>${meta}</div></div><div class='card-tips'><div class='pick-stack'>${pickLines}</div></div></div></article>`;
+}
+function renderFinalsBracket(selectedRound, players){
   const wrap = document.getElementById('bracketWrap');
   if (!wrap) return;
   const cols = BRACKET_STAGES.map(function(st){
-    let games;
-    if (st.code === 'GF') {
-      games = [bracketMatchup('TBC','TBC', true)];
+    const isCurrent = st.code === selectedRound;
+    let body;
+    if (isCurrent) {
+      // The current week IS the tipping - full writable cards, no separate section below.
+      const gs = FIXTURES.filter(f => f.round === st.code).sort((a,b)=>new Date(a.date_awst)-new Date(b.date_awst));
+      body = gs.map(g=>finalsTipCardHtml(g, players)).join('');
+    } else if (st.code === 'GF') {
+      body = bracketMatchup('TBC','TBC', true);
     } else if (st.code === 'SF' || st.code === 'PF') {
       const known = FIXTURES.filter(f => f.round === st.code).sort((a,b)=>new Date(a.date_awst)-new Date(b.date_awst));
-      games = known.length ? known.map(g=>bracketMatchup(g.home,g.away)) : [bracketMatchup('TBC','TBC'), bracketMatchup('TBC','TBC')];
+      body = known.length ? known.map(g=>bracketMatchup(g.home,g.away)).join('') : bracketMatchup('TBC','TBC') + bracketMatchup('TBC','TBC');
     } else {
       const gs = FIXTURES.filter(f => f.round === st.code).sort((a,b)=>new Date(a.date_awst)-new Date(b.date_awst));
-      games = gs.length ? gs.map(g=>bracketMatchup(g.home,g.away)) : [bracketMatchup('TBC','TBC')];
+      body = gs.length ? gs.map(g=>bracketMatchup(g.home,g.away)).join('') : bracketMatchup('TBC','TBC');
     }
-    const isCurrent = st.code === selectedRound;
-    const cls = 'bracket-col' + (isCurrent ? ' current' : '') + (st.code === 'GF' ? ' gf' : '');
-    const flag = isCurrent ? "<div class='stage-flag'>▼ THIS WEEK ▼</div>" : "";
-    return `<div class='${cls}'>${flag}<div class='stage-head'>${st.name}<span class='stage-dates'>${st.dates}</span></div>${games.join('')}</div>`;
+    const cls = 'bracket-col' + (isCurrent ? ' current tip-col' : '') + (st.code === 'GF' ? ' gf' : '');
+    const flag = isCurrent ? "<div class='stage-flag'>▼ TIP THESE ▼</div>" : "";
+    const label = isCurrent ? roundDisplayLabel(st.code) : st.name;
+    return `<div class='${cls}'>${flag}<div class='stage-head'>${label}<span class='stage-dates'>${st.dates}</span></div>${body}</div>`;
   }).join('');
-  wrap.innerHTML = "<div class='bracket-cap'>Win and move right → all the way to the 🏆</div><div class='bracket'>" + cols + "</div>";
+  wrap.innerHTML = "<div class='bracket-cap'>Tip this week's games, then follow the road to the 🏆</div><div class='bracket'>" + cols + "</div>";
 }
 function cardSide(name){
   const logo = TEAM_FILE[name];
@@ -619,7 +628,6 @@ function render() {
   const finalsBoxEl = document.getElementById('finalsBox');
   if (mapBoxEl) mapBoxEl.style.display = isFinals ? 'none' : '';
   if (finalsBoxEl) finalsBoxEl.style.display = isFinals ? '' : 'none';
-  if (isFinals) renderFinalsBracket(selectedRound);
 
   const mapWrap = document.getElementById('mapWrap');
   const mapLines = document.getElementById('mapLines');
@@ -628,6 +636,15 @@ function render() {
   mapWrap.querySelectorAll('.target-marker').forEach(x=>x.remove());
   mapLines.querySelectorAll('line').forEach(x=>x.remove());
   cards.innerHTML = '';
+
+  // Finals: tipping lives inside the bracket's current-week column, so the
+  // separate cards section is not used - render the bracket and stop.
+  if (isFinals) {
+    cards.style.display = 'none';
+    renderFinalsBracket(selectedRound, players);
+    return;
+  }
+  cards.style.display = '';
 
   // Stadium numbering (one number per unique venue in this round)
   const venues = [];
@@ -794,7 +811,7 @@ document.getElementById('playerList').addEventListener('click', function(e) {
   render();
 });
 
-document.getElementById('cards').addEventListener('click', function(e) {
+function onTipClick(e) {
   const btn = e.target.closest('.tip-btn');
   if (!btn) return;
   const matchId = btn.getAttribute('data-match');
@@ -812,7 +829,10 @@ document.getElementById('cards').addEventListener('click', function(e) {
   pick.querySelectorAll('.tip-btn').forEach(function(b) {
     b.classList.toggle('selected', b.getAttribute('data-choice') === newTip);
   });
-});
+}
+// Tip cards can live in #cards (normal rounds) or inside the bracket (finals).
+document.getElementById('cards').addEventListener('click', onTipClick);
+document.getElementById('bracketWrap').addEventListener('click', onTipClick);
 
 renderPlayers();
 render();
